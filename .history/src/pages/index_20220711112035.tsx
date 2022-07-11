@@ -11,6 +11,7 @@ interface HomeProps {
     priceId: string;
     amount: number;
   }
+  
 }
 
 
