@@ -12,5 +12,6 @@ export function SubscribeButton ({priceId}: SubscribeButtonProps) {
         >
             Subscribe now
         </button>
+        
     ); 
 }
