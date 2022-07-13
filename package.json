@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/node": "^18.0.3",
     "@types/react": "^18.0.15",
+    "faunadb": "^4.6.0",
     "next": "12.2.0",
     "node": "^18.4.0",
     "react": "^18.2.0",

@@ -31,8 +31,7 @@ export default NextAuth({
                   q.Casefold(user.email)
                 )
               )
-            ),
-
+            )
             q.Create(
               q.Collection('users'),
               { data: {email} }
@@ -44,7 +43,6 @@ export default NextAuth({
                 q.Casefold(user.email)
               )
             )
-            
           ),
         )
         return true
