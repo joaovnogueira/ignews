@@ -12,3 +12,6 @@ export const stripe = new Stripe(
     }
 )
 
+stripe.checkout.sessions.create{
+    
+}
