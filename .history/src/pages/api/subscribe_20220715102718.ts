@@ -31,27 +31,28 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         let costumerId = user.data.stripe_costumer_id
 
         if (!costumerId) {
-            const stripeCostumer = await stripe.customers.create({
-                email: session.user.email,
+            const stripeCostumer = await stripe.costumers.create({
+                emai
             })
-
-            await fauna.query(
-                q.Update(
-                    q.Ref(q.Collection('users'), user.ref.id),
-                    {
-                        data: {
-                            stripe_costumer_id: stripeCostumer.id,
-                        }
-                    }
-                )
-            )
-
-            costumerId = stripeCostumer.id
         }
-   
+
+        const stripeCostumer = await stripe.customers.create({
+            email: session.user.email,
+        })
+
+        await fauna.query(
+            q.Update(
+                q.Ref(q.Collection('users'), user.ref.id),
+                {
+                    data: {
+                        stripe_costumer_id: stripeCostumer.id,
+                    }
+                }
+            )
+        )
 
         const stripeCheckoutSession = await stripe.checkout.sessions.create({
-            customer: costumerId,
+            customer: stripeCostumer.id,
             payment_method_types: ['card'],
             billing_address_collection: 'required',
             line_items: [

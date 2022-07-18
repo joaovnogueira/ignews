@@ -48,7 +48,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
             costumerId = stripeCostumer.id
         }
-   
+
+             
 
         const stripeCheckoutSession = await stripe.checkout.sessions.create({
             customer: costumerId,
