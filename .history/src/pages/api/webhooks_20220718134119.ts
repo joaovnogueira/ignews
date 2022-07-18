@@ -26,8 +26,8 @@ export const config = {
 const relevantEvents = new Set([
     'checkout.session.completed',
     'customer.subscription.created',
-    'customer.subscription.updated',
-    'customer.subscription.deleted',
+    'customer.subscriptions.updated',
+    'customer.subscriptions.deleted',
 ])
 
 export default async (req: NextApiRequest, res:NextApiResponse) => {
