@@ -1,0 +1,1 @@
+import Prismic from '@prismic/client'

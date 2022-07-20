@@ -1,0 +1,21 @@
+{
+  "id": "aea1d551-2525-4347-8255-d4409c40efb7",
+  "uid": "ipsam-excepturi-minima",
+  "type": "publication",
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Grow sexy schemas",
+        "spans": []
+      }
+    ],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Ipsum consequat nostrud minim do cillum ea consectetur. Aliquip qui aliquip aliqua ex aute occaecat minim magna.",
+        "spans": []
+      }
+    ]
+  }
+}
