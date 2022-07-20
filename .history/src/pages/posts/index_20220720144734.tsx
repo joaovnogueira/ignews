@@ -5,18 +5,7 @@ import styles from './styles.module.scss'
 import * as Prismic from '@prismicio/client'
 import { RichText } from 'prismic-dom'
 
-interface PostProps {
-    posts: Post[];
-}
-
-interface Post{
-    slug: string,
-    title: string,
-    excerpt: string,
-    updatedAt: string,
-}
-
-export default function Posts({posts}: PostProps) {
+export default function Posts() {
     return(
         <>
             <Head>
@@ -25,13 +14,21 @@ export default function Posts({posts}: PostProps) {
 
             <main className={styles.container}>
                 <div className={styles.posts}>
-                    {posts.map(post => (
-                        <a href="" key={post.slug}>
-                            <time>{post.updatedAt}</time>
-                            <strong>{post.title}</strong>
-                            <p>{post.excerpt}</p>
-                        </a>
-                    ))}
+                    <a href="">
+                        <time>12 de março de 1999</time>
+                        <strong>Boas práticas para devs em início de carreira</strong>
+                        <p>Hoje devs são peças fundamentais de todo negócio, estão nas startups e nas pequenas e médias empresas que buscam soluções tecnológicas para seus produtos e serviços.</p>
+                    </a>
+                    <a href="">
+                        <time>12 de março de 1999</time>
+                        <strong>Boas práticas para devs em início de carreira</strong>
+                        <p>Hoje devs são peças fundamentais de todo negócio, estão nas startups e nas pequenas e médias empresas que buscam soluções tecnológicas para seus produtos e serviços.</p>
+                    </a>
+                    <a href="">
+                        <time>12 de março de 1999</time>
+                        <strong>Boas práticas para devs em início de carreira</strong>
+                        <p>Hoje devs são peças fundamentais de todo negócio, estão nas startups e nas pequenas e médias empresas que buscam soluções tecnológicas para seus produtos e serviços.</p>
+                    </a>
                 </div>
             </main> 
         </>
@@ -67,8 +64,6 @@ export const getStaticProps: GetStaticProps = async () => {
     console.log(JSON.stringify(response, null, 2))
 
     return {
-        props: {
-            posts
-        }
+        props: {}
     }
 }
