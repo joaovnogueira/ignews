@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { ActiveLink } from '../ActiveLink';
 
 export function Header() {
+    const { asPath } = useRouter()
 
     return (
         <header className={styles.headerContainer}>
@@ -15,7 +16,7 @@ export function Header() {
                         <a>Home</a>
                     </ActiveLink>
                     <ActiveLink activeClassName={styles.active}href="/posts">
-                        <a>Posts</a>
+                        <a className={asPath === '/posts' ? styles.active : ''}>Posts</a>
                     </ActiveLink>
                 </nav>
                 <SignInButton />

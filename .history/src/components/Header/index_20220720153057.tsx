@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { ActiveLink } from '../ActiveLink';
 
 export function Header() {
+    const { asPath } = useRouter()
 
     return (
         <header className={styles.headerContainer}>

@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { ActiveLink } from '../ActiveLink';
 
 export function Header() {
+    const { asPath } = useRouter()
 
     return (
         <header className={styles.headerContainer}>
@@ -12,10 +13,10 @@ export function Header() {
                 <img src="/images/logo.svg" alt=""/>
                 <nav>
                     <ActiveLink activeClassName={styles.active} href="/">
-                        <a>Home</a>
+                        <a className={asPath === '/' ? styles.active : ''}>Home</a>
                     </ActiveLink>
-                    <ActiveLink activeClassName={styles.active}href="/posts">
-                        <a>Posts</a>
+                    <ActiveLink href="/posts">
+                        <a className={asPath === '/posts' ? styles.active : ''}>Posts</a>
                     </ActiveLink>
                 </nav>
                 <SignInButton />
