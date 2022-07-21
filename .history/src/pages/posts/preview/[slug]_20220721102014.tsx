@@ -1,12 +1,12 @@
-import { GetServerSideProps } from "next"
+import { GetStaticProps } from "next"
 import { getSession } from "next-auth/react"
 import Head from "next/head"
 import { RichText } from "prismic-dom"
-import { getPrismicClient } from "../../services/prismic"
+import { getPrismicClient } from "../../../services/prismic"
 
 import styles from './post.module.scss'
 
-interface PostProps {
+interface PostPreviewProps {
     post: {
         slug: string;
         title: string;
@@ -16,7 +16,7 @@ interface PostProps {
 }
 
 
-export default function Post({post} : PostProps) {
+export default function PostPreview({post} : PostPreviewProps) {
     return (
         <>
             <Head>
@@ -37,29 +37,24 @@ export default function Post({post} : PostProps) {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
-    const session = await getSession({ req })
+export const getStaticPaths = () => {
+    return{
+        paths: [],
+        fallback: 'blocking'
+    }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
     const {slug} = params;
 
-    console.log(session)
-
-    if(!session?.activeSubscription) {
-        return {
-            redirect: {
-                destination: '/',
-                permanent: false,
-            }
-        }
-    }
-
-    const prismic = getPrismicClient(req)
+    const prismic = getPrismicClient()
 
     const response = await prismic.getByUID('publication', String(slug), {})
 
     const post = {
         slug,
         title: RichText.asText(response.data.title),
-        content: RichText.asHtml(response.data.content),
+        content: RichText.asHtml(response.data.content.splice),
         updatedAt: new Date(response.last_publication_date).toLocaleDateString('pt-BR', {
             day: '2-digit',
             month: 'long',
