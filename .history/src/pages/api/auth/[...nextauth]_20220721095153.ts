@@ -44,21 +44,14 @@ export default NextAuth({
             )
           )
         )
-  
-        return {
-          ...session, 
-          activeSubscription: userActiveSubscription
-        }
-   
       }
 
-      catch {
-        return {
-          ...session, 
-          activeSubscription: null,
-        }
-      }
+      
 
+      return {
+        ...session, 
+        activeSubscription: userActiveSubscription
+      }
     },
 
     async signIn({ user, account, profile }) {

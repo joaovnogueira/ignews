@@ -51,14 +51,13 @@ export default NextAuth({
         }
    
       }
-
       catch {
         return {
           ...session, 
-          activeSubscription: null,
+          active
         }
       }
-
+      
     },
 
     async signIn({ user, account, profile }) {
