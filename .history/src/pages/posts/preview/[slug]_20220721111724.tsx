@@ -58,7 +58,9 @@ export default function PostPreview({post} : PostPreviewProps) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
     return{
-        paths: [],
+        paths: [
+            {params(slug: 'typeScript-por-trás do superset de JavaScript')}
+        ],
         fallback: 'blocking'
     }
 }
