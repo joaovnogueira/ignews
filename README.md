@@ -7,6 +7,7 @@
   - NextJS
   - Prismicio
   - FaunaDB
+  - TypeScript
  
 ## O que é?
   Site que tem as principais notícias sobre o mundo da programação com foco no framework ReactJS
